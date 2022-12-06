@@ -1,0 +1,61 @@
+﻿@model KNG8_FrontEnd.Models.UsuarioObj
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/Login.cshtml";
+}
+
+<div class="login-box">
+
+    <!-- /.login-logo -->
+    <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+            <a href="#" class="h1"><b>Smily</b>Soft</a>
+        </div>
+        <div class="card-body">
+
+            @using (Html.BeginForm("ValidarAcceso", "Home", FormMethod.Post))
+            {
+
+                <div class="input-group mb-3">
+
+                    @Html.TextBoxFor(m => m.Correo, new { @class = "form-control", @placeholder = "Correo", @type = "email" })
+
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+
+                    @Html.TextBoxFor(m => m.Contrasenna, new { @class = "form-control", @placeholder = "Contraseña", @type = "password" })
+
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-7">
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-5">
+                        <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            }
+
+            <p class="mb-1">
+                <a href="@Url.Action("RecuperarPassword", "Home")"> Recuperar Contraseña </a>
+            </p>
+
+            <p class="mb-1">
+                <a href="@Url.Action("CrearUsuario", "Home")"> Crear Usuario </a>
+            </p>
+        </div>
+    </div>
+
+</div>

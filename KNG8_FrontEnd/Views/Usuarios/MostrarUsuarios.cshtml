@@ -1,0 +1,46 @@
+﻿@model IEnumerable <KNG8_FrontEnd.Models.UsuarioObj>
+
+@{
+    ViewBag.Title = "MostrarUsuarios";
+}
+
+<div class="row">
+    <div class="col-12">
+
+        <div class=" card-header">
+            <h2 class="card-title center-block">Usuarios </h2>
+            <br />
+        </div>
+
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Correo</th>
+                        <th>Rol de Usuario</th>
+                        <th>Estado de Cuenta</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model) {
+                    <tr>
+                        <td> @item.NombreCompleto</td>
+                        <td> @item.Correo</td>
+                        <td> @item.TipoUsuario</td>
+                        <td> @item.Estado</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+                   }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

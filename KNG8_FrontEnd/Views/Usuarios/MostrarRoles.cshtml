@@ -1,0 +1,44 @@
+﻿@model IEnumerable<KNG8_FrontEnd.Models.roleObj>
+
+@{
+    ViewBag.Title = "MostrarRoles";
+}
+
+<div class="row">
+    <div class="col-12">
+
+        <div class=" card-header">
+            <h2 class="card-title center-block">Usuarios </h2>
+            <br />
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Role ID</th>
+                        <th>Description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td> @item.RoleID</td>
+                            <td> @item.RoleDescription</td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
